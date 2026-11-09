@@ -1,0 +1,162 @@
+﻿<Window x:Class="KlassKlass.StudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Кирилл.Класс - Ученик" Height="700" Width="1100"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F5F5">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ===== ЛЕВЫЙ САЙДБАР ===== -->
+        <Border Grid.Column="0" Background="White" BorderBrush="#E0E0E0" BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Логотип -->
+                <StackPanel Grid.Row="0" VerticalAlignment="Top" Margin="0,20,0,20">
+                    <Ellipse Width="80" Height="80" HorizontalAlignment="Center">
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#A78BFA" Offset="0"/>
+                                <GradientStop Color="#818CF8" Offset="0.5"/>
+                                <GradientStop Color="#60A5FA" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <TextBlock Text="Кирилл.Класс" FontSize="16" FontWeight="Bold" 
+                               HorizontalAlignment="Center" Margin="0,5,0,0" Foreground="#4A4A6A"/>
+                </StackPanel>
+
+                <!-- Список предметов в сайдбаре -->
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="SidebarSubjectsList" Margin="10,0"/>
+                </ScrollViewer>
+
+                <!-- Информация о пользователе -->
+                <Border Grid.Row="2" BorderBrush="#E0E0E0" BorderThickness="0,1,0,0" Padding="15">
+                    <StackPanel>
+                        <TextBlock x:Name="TxtUserFIO" FontSize="13" FontWeight="Bold" Foreground="#333"/>
+                        <TextBlock x:Name="TxtUserGroup" FontSize="12" Foreground="#666" Margin="0,3,0,0"/>
+                        <Button Content="Выйти" Width="80" Height="28" Margin="0,10,0,0"
+                                Background="#E74C3C" Foreground="White" BorderThickness="0"
+                                Cursor="Hand" Click="BtnLogout_Click"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+        <Grid Grid.Column="1" Margin="20">
+
+            <!-- ЭКРАН 1: Список предметов (Фото 1) -->
+            <ScrollViewer x:Name="MainPanel" VerticalScrollBarVisibility="Auto" Visibility="Visible">
+                <WrapPanel x:Name="SubjectsPanel" Margin="0,0,0,20"/>
+            </ScrollViewer>
+
+            <!-- ЭКРАН 2: Список заданий предмета (Фото 2) -->
+            <Border x:Name="SubjectPanel" Background="White" CornerRadius="12" 
+                    BorderBrush="#E0E0E0" BorderThickness="1" Visibility="Collapsed">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Синяя шапка -->
+                    <Border Grid.Row="0" Background="#A0BFFF" CornerRadius="12,12,0,0" Padding="20">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock x:Name="TxtSubjectTitle" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                            <TextBlock x:Name="TxtSubjectGroup" FontSize="16" Foreground="White" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Кнопка назад -->
+                    <Button Grid.Row="0" Content="← Назад" Width="80" Height="30"
+                            Background="White" Foreground="#4169E1" BorderThickness="0"
+                            Cursor="Hand" HorizontalAlignment="Right" VerticalAlignment="Top"
+                            Margin="0,10,15,0" Click="BtnBackToMain_Click"/>
+
+                    <!-- Список заданий -->
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
+                        <StackPanel>
+                            <TextBlock Text="Список заданий" FontSize="18" FontWeight="Bold" Margin="0,0,0,15" Foreground="#333"/>
+                            <StackPanel x:Name="AssignmentsList"/>
+                            <TextBlock x:Name="TxtEmptyAssignments" Text="Тут пусто" FontSize="16" 
+                                       Foreground="#999" HorizontalAlignment="Center" Margin="0,30,0,0"
+                                       Visibility="Collapsed"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <!-- ЭКРАН 3: Детали задания (Фото 3) -->
+            <Border x:Name="AssignmentPanel" Background="White" CornerRadius="12" 
+                    BorderBrush="#E0E0E0" BorderThickness="1" Visibility="Collapsed">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Синяя шапка -->
+                    <Border Grid.Row="0" Background="#A0BFFF" CornerRadius="12,12,0,0" Padding="20">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock x:Name="TxtAssignmentTitle" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Кнопка назад -->
+                    <Button Grid.Row="0" Content="← Назад" Width="80" Height="30"
+                            Background="White" Foreground="#4169E1" BorderThickness="0"
+                            Cursor="Hand" HorizontalAlignment="Right" VerticalAlignment="Top"
+                            Margin="0,10,15,0" Click="BtnBackToSubject_Click"/>
+
+                    <!-- Контент задания -->
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
+                        <StackPanel>
+                            <!-- Оценка -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="Оценка:" FontSize="16" FontWeight="Bold" Foreground="#333"/>
+                                <Border Background="#E0E0E0" CornerRadius="10" Padding="12,4" Margin="10,0,0,0">
+                                    <TextBlock x:Name="TxtGrade" Text="0" FontSize="16" FontWeight="Bold" Foreground="#333"/>
+                                </Border>
+                            </StackPanel>
+
+                            <!-- Описание -->
+                            <TextBlock Text="Описание:" FontSize="16" FontWeight="Bold" Foreground="#333" Margin="0,10,0,5"/>
+                            <TextBlock x:Name="TxtAssignmentDesc" FontSize="14" Foreground="#555" 
+                                       TextWrapping="Wrap" Margin="0,0,0,30"/>
+
+                            <!-- Блок "Моя работа" -->
+                            <Border Background="#F8F8F8" CornerRadius="15" Padding="20" Margin="0,0,0,20">
+                                <StackPanel>
+                                    <TextBlock Text="Моя работа" FontSize="18" FontWeight="Bold" 
+                                               HorizontalAlignment="Center" Margin="0,0,0,15" Foreground="#333"/>
+
+                                    <WrapPanel x:Name="FilesPanel" HorizontalAlignment="Center"/>
+
+                                    <!-- Кнопка добавления файла -->
+                                    <Button x:Name="BtnAddFile" Width="80" Height="80" 
+                                            Background="#E0E0E0" BorderThickness="0" Cursor="Hand"
+                                            Click="BtnAddFile_Click" Margin="5">
+                                        <StackPanel>
+                                            <TextBlock Text="+" FontSize="36" Foreground="#666" 
+                                                       HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

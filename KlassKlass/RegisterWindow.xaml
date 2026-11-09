@@ -1,0 +1,69 @@
+﻿<Window x:Class="KlassKlass.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Регистрация" Height="577" Width="420"
+        WindowStartupLocation="CenterOwner"
+        Background="#808080">
+    <Border Background="White" Width="340" Height="486"
+            VerticalAlignment="Center" HorizontalAlignment="Center"
+            CornerRadius="15" Padding="30,25,30,25">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="15" ShadowDepth="3" Opacity="0.2"/>
+        </Border.Effect>
+        <StackPanel>
+            <TextBlock Text="Регистрация" FontSize="22" FontWeight="Bold" 
+                       HorizontalAlignment="Center" Margin="0,0,0,15"
+                       Foreground="#222"/>
+
+            <TextBlock Text="Логин" FontSize="13" Margin="0,0,0,5" Foreground="#555"/>
+            <Border Background="#F0F0F0" CornerRadius="8" Height="36" Margin="0,0,0,10">
+                <TextBox x:Name="TxtRegLogin" Background="Transparent" BorderThickness="0"
+                         Padding="10,0" VerticalContentAlignment="Center"/>
+            </Border>
+
+            <TextBlock Text="ФИО" FontSize="13" Margin="0,0,0,5" Foreground="#555"/>
+            <Border Background="#F0F0F0" CornerRadius="8" Height="36" Margin="0,0,0,10">
+                <TextBox x:Name="TxtRegFIO" Background="Transparent" BorderThickness="0"
+                         Padding="10,0" VerticalContentAlignment="Center"/>
+            </Border>
+
+            <TextBlock Text="Пароль" FontSize="13" Margin="0,0,0,5" Foreground="#555"/>
+            <Border Background="#F0F0F0" CornerRadius="8" Height="36" Margin="0,0,0,10">
+                <PasswordBox x:Name="TxtRegPassword" Background="Transparent" BorderThickness="0"
+                             Padding="10,0" VerticalContentAlignment="Center"/>
+            </Border>
+
+            <TextBlock Text="Статус" FontSize="13" Margin="0,0,0,5" Foreground="#555"/>
+            <Border Background="#F0F0F0" CornerRadius="8" Height="36" Margin="0,0,0,10">
+                <ComboBox x:Name="CmbRole" Background="Transparent" BorderThickness="0"
+                          Padding="10,0" VerticalContentAlignment="Center"
+                          SelectionChanged="CmbRole_SelectionChanged">
+                    <ComboBoxItem Content="Ученик"/>
+                    <ComboBoxItem Content="Учитель"/>
+                </ComboBox>
+            </Border>
+
+            <TextBlock Text="Группа" FontSize="13" Margin="0,0,0,5" Foreground="#555"
+                       x:Name="LblGroup"/>
+            <Border Background="#F0F0F0" CornerRadius="8" Height="36" Margin="0,0,0,15"
+                    x:Name="BrGroup">
+                <ComboBox x:Name="CmbGroup" Background="Transparent" BorderThickness="0"
+                          Padding="10,0" VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="22ИС"/>
+                    <ComboBoxItem Content="25ИС"/>
+                </ComboBox>
+            </Border>
+
+            <Button Content="Зарегистрироваться" Height="38" 
+                    Background="#2196F3" Foreground="White"
+                    BorderThickness="0" Cursor="Hand" FontSize="14"
+                    Click="BtnRegister_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="19"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Border>
+</Window>

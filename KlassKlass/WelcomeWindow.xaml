@@ -1,0 +1,40 @@
+﻿<Window x:Class="KlassKlass.WelcomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Кирилл.Класс" Height="500" Width="700"
+        WindowStartupLocation="CenterScreen"
+        Background="White"
+        ResizeMode="NoResize">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <!-- Градиентный круг-логотип -->
+        <Ellipse Width="140" Height="140" Margin="0,0,0,10">
+            <Ellipse.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#A78BFA" Offset="0"/>
+                    <GradientStop Color="#818CF8" Offset="0.5"/>
+                    <GradientStop Color="#60A5FA" Offset="1"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <!-- Внутренний белый круг (дырка бублика) -->
+        <Grid Margin="0,-110,0,0" HorizontalAlignment="Center"/>
+
+        <TextBlock Text="Кирилл.Класс" FontSize="28" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,30,0,10"
+                   Foreground="#4A4A6A"/>
+
+        <TextBlock FontSize="20" HorizontalAlignment="Center" 
+                   Margin="0,0,0,50" Foreground="#4A4A6A"><Run Language="ru-ru" Text="почти гугл классс"/></TextBlock>
+
+        <Button Content="Начать работу" Width="160" Height="40" 
+                Background="#3A3A4A" Foreground="White"
+                BorderThickness="0" Cursor="Hand" FontSize="14"
+                Click="BtnStart_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </StackPanel>
+</Window>

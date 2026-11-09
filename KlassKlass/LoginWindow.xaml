@@ -1,0 +1,56 @@
+﻿<Window x:Class="KlassKlass.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Кирилл.Класс" Height="500" Width="700"
+        WindowStartupLocation="CenterScreen"
+        Background="#808080"
+        ResizeMode="NoResize">
+    <Grid>
+        <!-- Градиентный круг-логотип сверху (частично виден) -->
+        <Grid Margin="0,-25,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <!-- Белая карточка входа -->
+        <Border Background="White" Width="320" Height="289"
+                VerticalAlignment="Center" HorizontalAlignment="Center"
+                CornerRadius="15" Padding="30,25,30,25">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="3" Opacity="0.2"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Вход" FontSize="24" FontWeight="Bold" 
+                           HorizontalAlignment="Center" Margin="0,0,0,20"
+                           Foreground="#222"/>
+
+                <TextBlock Text="Логин" FontSize="13" Margin="0,0,0,5" Foreground="#555"/>
+                <Border Background="#F0F0F0" CornerRadius="8" Height="36" Margin="0,0,0,12">
+                    <TextBox x:Name="TxtLogin" Background="Transparent" BorderThickness="0"
+                             Padding="10,0" VerticalContentAlignment="Center"/>
+                </Border>
+
+                <TextBlock Text="Пароль" FontSize="13" Margin="0,0,0,5" Foreground="#555"/>
+                <Border Background="#F0F0F0" CornerRadius="8" Height="36" Margin="0,0,0,20">
+                    <PasswordBox x:Name="TxtPassword" Background="Transparent" BorderThickness="0"
+                                 Padding="10,0" VerticalContentAlignment="Center"/>
+                </Border>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Войти" Width="90" Height="32" 
+                            Background="#2196F3" Foreground="White"
+                            BorderThickness="0" Cursor="Hand" FontSize="13"
+                            Click="BtnDoLogin_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="17"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <TextBlock Text="Регистрация" FontSize="13" Foreground="#2196F3"
+                               VerticalAlignment="Center" Cursor="Hand" Margin="20,0,0,0"
+                               MouseLeftButtonDown="TxtRegister_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Кнопка "Начать работу" снизу -->
+    </Grid>
+</Window>
