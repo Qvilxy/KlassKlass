@@ -1,7 +1,7 @@
 ﻿<Window x:Class="KlassKlass.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Кирилл.Класс" Height="500" Width="700"
+        Title="Класс.Класс" Height="500" Width="700"
         WindowStartupLocation="CenterScreen"
         Background="#808080"
         ResizeMode="NoResize">

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="KlassKlass.WelcomeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Кирилл.Класс" Height="500" Width="700"
+        Title="Класс.Класс" Height="500" Width="700"
         WindowStartupLocation="CenterScreen"
         Background="White"
         ResizeMode="NoResize">
@@ -19,9 +19,9 @@
         <!-- Внутренний белый круг (дырка бублика) -->
         <Grid Margin="0,-110,0,0" HorizontalAlignment="Center"/>
 
-        <TextBlock Text="Кирилл.Класс" FontSize="28" FontWeight="Bold" 
+        <TextBlock FontSize="28" FontWeight="Bold" 
                    HorizontalAlignment="Center" Margin="0,30,0,10"
-                   Foreground="#4A4A6A"/>
+                   Foreground="#4A4A6A"><Run Language="ru-ru" Text="  "/><Run Text="К"/><Run Language="ru-ru" Text="ласс"/><Run Text=".Класс"/></TextBlock>
 
         <TextBlock FontSize="20" HorizontalAlignment="Center" 
                    Margin="0,0,0,50" Foreground="#4A4A6A"><Run Language="ru-ru" Text="почти гугл классс"/></TextBlock>

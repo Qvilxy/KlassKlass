@@ -1,7 +1,7 @@
 ﻿<Window x:Class="KlassKlass.TeacherWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Кирилл.Класс - Учитель" Height="700" Width="1100"
+        Title="Класс.Класс - Учитель" Height="700" Width="1100"
         WindowStartupLocation="CenterScreen"
         Background="#F5F5F5">
     <Grid>
@@ -30,8 +30,8 @@
                             </LinearGradientBrush>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <TextBlock Text="Кирилл.Класс" FontSize="16" FontWeight="Bold" 
-                               HorizontalAlignment="Center" Margin="0,5,0,0" Foreground="#4A4A6A"/>
+                    <TextBlock FontSize="16" FontWeight="Bold" 
+                               HorizontalAlignment="Center" Margin="0,5,0,0" Foreground="#4A4A6A"><Run Language="ru-ru" Text="  "/><Run Text="Кл"/><Run Language="ru-ru" Text="асс"/><Run Text=".Класс"/></TextBlock>
                 </StackPanel>
 
                 <!-- Список предметов в сайдбаре -->
